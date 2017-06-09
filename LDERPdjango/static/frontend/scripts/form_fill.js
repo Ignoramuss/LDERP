@@ -8,3 +8,6 @@ function show_student_pane(){
   $("#student_adder").show();
 }
 
+$(function(){
+    $("#search_pane").hide();
+});

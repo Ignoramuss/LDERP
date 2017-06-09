@@ -115,3 +115,194 @@ fieldset {
 :-ms-input-placeholder {
  color:#888;
 }
+
+
+
+p {
+	margin: 2em 0 1em;
+	line-height: 24px;
+}
+
+.share {
+	position: relative;
+	display: inline-block;
+}
+
+.share a {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	text-decoration: none;
+	text-align: center;
+	padding: 0 0 0 0;
+}
+
+.share > a {
+	display: inline-block;
+	width: 100px;
+	height: 59px;
+	z-index: 1;
+	font-weight: bold;
+	color: #616267;
+	border-radius: 3px;
+}
+
+.share > a:hover {
+	background: #eee;
+}
+
+.share div {
+	position: absolute;
+	width: 100px;
+	height: 8px;
+	overflow: hidden;
+	left: 2px;
+	top: 28px;
+	-webkit-transition: all 150ms linear;
+	-moz-transition: all 150ms linear;
+	-o-transition: all 150ms linear;
+	transition: all 150ms linear;
+}
+
+.share:hover div {
+	height: 94px;
+	/*
+	 * 26px (height of <li>) times the number of <li>s, plus 16px for grippy
+	 */
+}
+
+.share ul {
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	width: 96px;
+	background: #56A0F9;
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.15), transparent);
+	margin: 0;
+	padding: 2px 0 9px;
+	border-radius: 0 0 3px 3px;
+	border: 1px solid rgba(0,0,0,0.25);
+	border-width: 0 1px 1px;
+	box-shadow: 0 -1px 0 rgba(255,255,255,0.5) inset;
+	z-index: 9999;
+}
+
+/*.share ul::before {
+	content: '.';
+	text-indent: -9999px;
+	display: block;
+	background: #56A0F9;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	bottom: -4px;
+	left: 38px;
+	border-radius: 15px;
+	box-shadow:
+		0 -1px 0 rgba(255,255,255,0.5) inset,
+		0 1px 0 #666;
+	z-index: 0;
+}*/
+
+/*.share ul::after {
+	content: '.';
+	text-indent: -9999px;
+	display: block;
+	background: #fff;
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	bottom: -2px;
+	left: 42px;
+	border-radius: 15px;
+	border: 1px solid #666;
+	box-shadow: 0 -1px 0 rgba(255,255,255,0.5);
+	z-index: 0;
+}*/
+
+.share.orange ul {
+	background: #FF8100;
+}
+
+.share.orange ul::before {
+	background: #FF8100;
+}
+
+.share.yellow ul {
+	background: #B4E12C;
+}
+.share.yellow ul::before {
+	background: #B4E12C;
+}
+
+.share.black ul {
+	background: #2C2D32;
+}
+.share.black ul::before {
+	background: #2C2D32;
+}
+
+.share:hover ul {
+	bottom: none;
+}
+
+.share ul li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.share ul li a {
+	display: block;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+
+.share ul li a:hover {
+	text-decoration: underline;
+}
+
+// Default Bootstrap theme
+
+main {
+  margin: 30px;
+}
+
+.dropdown {
+  width: 280px;
+  &> * {
+    width: 100%;
+  }
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: 10px 16px;
+    margin-top: 2%;
+		margin-right: 5%;
+    width: 98%;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 99%;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}

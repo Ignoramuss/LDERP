@@ -867,7 +867,7 @@ body {
   display: flex;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  /*background-color: #f0f0f0;*/
   font-family: Muli, sans-serif;
   color: #444;
 }
@@ -1016,7 +1016,7 @@ main {
   transition: all .5s;
 }
 .title a:before {
-  content: "\1f464";
+  /*content: "\e70a";*/
   font-size: 38px;
   position: absolute;
   left: -50px;

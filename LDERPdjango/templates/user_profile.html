@@ -24,7 +24,7 @@
 <!-- Second Container -->
 <span class="bckg"></span>
 <header>
-  <h1>{{user.username}}'s dashboard</h1>
+  <h1>Dashboard</h1>
   <nav>
     <ul>
       <li>
@@ -39,7 +39,48 @@
 <main>
   <div class="title">
     <h2>Student Form</h2>
-    <a href="/logout/">Logout</a>
+    <!-- <div class="share">
+	<a href="#" style="none">Hello {{user.username}}</a>
+	<div>
+		<ul class="share">
+			<li><a href="/logout/">Logout</a></li>
+		</ul>
+	</div>
+</div> -->
+  <div class="dropdown">
+    <!-- button that expands the menu requirements:
+          - id (referenced by menu's @aria-labelledby)
+          - aria-haspopup (true)
+          - aria-expanded (toggled true/false)
+          - data-toggle="dropdown" (Bootstrap hook) -->
+    <button id="dropdownMenu1" class="btn btn-default btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{user.username}}
+      <span class="fa fa-cog"></span>
+    </button>
+
+    <!-- menu requirements:
+          - @aria-labelledby on the ul to associate it with the button
+          - @href for all links
+          - role="separator" for all divider li (Bootstrap could/should do this) -->
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li class="dropdown-header">User: {{user.username}}</li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">An Action</a></li>
+      <li><a href="#">Another Action</a></li>
+      <li><a href="#">Getting Started/Help</a></li>
+      <li role="separator" class="divider"></li>
+      <li>
+        <a href="#">
+          <span class="fa fa-lock"></span> Change Your Password
+        </a>
+      </li>
+      <li>
+        <a href="/logout/">
+          <span class="fa fa-times"></span> Sign Out
+        </a>
+      </li>
+    </ul>
+  </div>
   </div>
 
   <!-- Please put things inside the article -->
@@ -60,10 +101,10 @@
       <input placeholder="Divison" type="text" tabindex="4" required>
     </fieldset>
     <fieldset>
-      Date of filling:  <input placeholder="Date of filling" type="date" tabindex="5" required>
+      Date of filling:<br><input placeholder="Date of filling" type="date" tabindex="5" required>
     </fieldset>
     <fieldset>
-      Date of Birth:  <input placeholder="Date of Birth" type="date" tabindex="6" required>
+      Date of Birth:<br><input placeholder="Date of Birth" type="date" tabindex="6" required>
     </fieldset>
     <br>
       <legend><span class="number"></span> <h1>Guardian Information</h1></legend>
@@ -114,7 +155,7 @@
           <input type="checkbox" name="disl" value="composition">   f. composition<br>
           <input type="checkbox" name="disl" value="grammar">   g. grammar<br>
         </fieldset>
-        <fieldset>
+
           <h3>Difficulties in Mathematics:</h3>
           <input type="checkbox" name="dism" value="number_identification">   a. identification of numbers<br>
           <input type="checkbox" name="dism" value="forget_tables">   b. forget tables<br>
@@ -122,15 +163,15 @@
           <input type="checkbox" name="dism" value="frac_dec">   d. problem in fraction and decimal<br>
           <input type="checkbox" name="dism" value="problem_int">   e. problem in integers<br>
           <input type="checkbox" name="dism" value="algebra">   f. problem in algebraic equation<br>
-        </fieldset>
+
         <fieldset>
           <h3>Score of Parental Checklist:</h3>
-          a. awareness:    <input  type="number" tabindex="17" required> <br><br>
-          b. acceptance:   <input  type="number" tabindex="18" required> <br><br>
-          c. active participation:    <input  type="number" tabindex="19" required> <br><br>
-          d. emotional support provided:   <input  type="number" tabindex="20" required> <br><br>
-          e. aware about strengths:   <input type="number" tabindex="21" required> <br><br>
-          f. parenting style:   <input  type="number" tabindex="22" required> <br><br>
+          a. awareness:<br><input  type="number" tabindex="17" required> <br>
+          b. acceptance:<br><input  type="number" tabindex="18" required> <br>
+          c. active participation:<br><input  type="number" tabindex="19" required> <br>
+          d. emotional support provided:<br><input  type="number" tabindex="20" required> <br>
+          e. aware about strengths:<br><input type="number" tabindex="21" required> <br>
+          f. parenting style:<br><input  type="number" tabindex="22" required> <br><br>
 
         </fieldset>
     <fieldset>
@@ -187,7 +228,10 @@
 
 	</div>
 </div>
-  <script type='text/javascript' src="scripts/search_ui.js"></script>
+  <!-- <script type='text/javascript' src="scripts/search_ui.js"></script> -->
+
+  <script type='text/javascript' src='{% static "frontend/scripts/form_fill.js" %}'></script>
+  <script type='text/javascript' src='{% static "frontend/scripts/search_ui.js" %}'></script>
 
   </article>
 </main>
