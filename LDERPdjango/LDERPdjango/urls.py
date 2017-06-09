@@ -25,6 +25,4 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('login.urls')),
     # url(r'^', include('dashboard.urls')),
-    url(r'^login/$', LoginSignupView.as_view(template_name='home.html', authentication_form=LoginForm), name="login"),
-    url(r'^logout/$', auth_views.logout, {'next_page': '/login'}, name='logout'),
 ]

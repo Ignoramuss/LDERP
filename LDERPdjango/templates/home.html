@@ -17,7 +17,6 @@
 
 </head>
 <body>
-
 <!-- Comment things out -->
 {% block content %}
     {% if form.errors %}
@@ -34,6 +33,10 @@
 
 <p>Please login to see this page.</p>
     {% endif %}
+{% endif %}
+
+{% if message %}
+    <div class='imp_message'><p>{{ message }}</p></div>
 {% endif %}
 <!-- Second Container -->
 <div class="container-fluid text-center ">
@@ -68,7 +71,7 @@
 
                <h2 class="login-header">Register</h2>
 
-               <form ation='/signedup/' class="login-container" method="post">
+               <form action='{% url "register" %}' class="login-container" method="post">
                    {% csrf_token %}
                    {{signup_form.as_p}}
                  <p><input type="submit" value="Register"></p>
