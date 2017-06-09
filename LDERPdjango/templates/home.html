@@ -19,7 +19,22 @@
 <body>
 
 <!-- Comment things out -->
+{% block content %}
+    {% if form.errors %}
 
+<p>There were errors in your submission</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+
+<p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+
+<p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
 <!-- Second Container -->
 <div class="container-fluid text-center ">
   <h2 class="margin">LD ERP</h2>
@@ -37,9 +52,9 @@
                <div class="login-triangle"></div>
 
                <h2 class="login-header">Log in</h2>
-               <form action='/loggedin/' class="login-container" method="post">
+               <form action='{% url "login" %}' class="login-container" method="post">
                    {% csrf_token %}
-                   {{ login_form.as_p }}
+                   {{ form.as_p }}
                  <p><input type="submit" value="Log in"></p>
                </form>
               <p>or</p>
@@ -69,3 +84,18 @@
 
 </body>
 </html>
+
+{% endblock %}
+
+<!--{% block javascript %}-->
+
+
+<!--<script>-->
+<!--{% if not user.is_authenticated %}-->
+<!--$("ul.nav.navbar-nav.navbar-right").css("display","none");-->
+<!--{% endif %}-->
+<!--</script>-->
+
+<!--{% endblock %}-->
+
+

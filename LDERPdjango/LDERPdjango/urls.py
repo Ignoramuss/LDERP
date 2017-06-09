@@ -18,7 +18,13 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf.urls import include
+from login.forms import LoginForm
+from login.views import LoginSignupView
 
 urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('login.urls')),
+    # url(r'^', include('dashboard.urls')),
+    url(r'^login/$', LoginSignupView.as_view(template_name='home.html', authentication_form=LoginForm), name="login"),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/login'}, name='logout'),
 ]

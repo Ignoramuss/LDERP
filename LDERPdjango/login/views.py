@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
 
 from .forms import LoginForm, SignUpForm
 
@@ -32,3 +34,18 @@ def login(request):
         signup_form = SignUpForm()
 
     return render(request, 'home.html', {'login_form': login_form, 'signup_form': signup_form})
+
+@login_required(login_url="login/")
+def home(request):
+    return render(request, "user_profile.html")
+
+class LoginSignupView(auth_views.LoginView):
+    def get_context_data(self, **kwargs):
+        context = super(LoginSignupView, self).get_context_data(**kwargs)
+        context.update({
+            'signup_form': SignUpForm(),
+        })
+        if self.extra_context is not None:
+            context.update(self.extra_context)
+        return context
+
