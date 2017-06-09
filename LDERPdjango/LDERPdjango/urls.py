@@ -20,5 +20,5 @@ from django.views.generic.base import TemplateView
 from django.conf.urls import include
 
 urlpatterns = [
-    url(r'^login/', include('login.urls')),
+    url(r'^', include('login.urls')),
 ]
