@@ -4,6 +4,7 @@ function show_search_pane(){
 }
 
 function show_student_pane(){
-  $("#student_pane").hide();
+  $("#search_pane").hide();
   $("#student_adder").show();
 }
+
