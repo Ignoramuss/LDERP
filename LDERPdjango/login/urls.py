@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf.urls import include
+from . import views
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
-    url(r'^login/$', auth_views.login, {'template_name': 'home.html'}, name='login'),
+    # url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    # # url(r'^login/$', auth_views.login, {'template_name': 'home.html'}, name='login'),
+    url(r'^$', views.login, name='login'),
+    # url(r'^signup/$', views.signup, name='signup'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^admin/', admin.site.urls),
 ]
