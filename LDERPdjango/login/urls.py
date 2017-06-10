@@ -27,6 +27,7 @@ urlpatterns = [
     # # url(r'^login/$', auth_views.login, {'template_name': 'home.html'}, name='login'),
     # url(r'^$', views.login, name='login'),
     url(r'^$', views.home, name='home'),
+    # url(r'^home/$', views.home, name='home'),
     url(r'^login/$', LoginSignupView.as_view(template_name='home.html', authentication_form=LoginForm), name="login"),
     url(r'^logout/$', auth_views.logout, {'next_page': '/login'}, name='logout'),
     url(r'^register/$', views.register, name='register'),

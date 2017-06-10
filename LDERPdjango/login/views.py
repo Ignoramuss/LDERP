@@ -6,7 +6,7 @@ from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from .forms import LoginForm, SignUpForm, RegistrationForm
+from .forms import LoginForm, RegistrationForm, StudentInfoForm, SearchForm
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.shortcuts import redirect
@@ -43,7 +43,7 @@ from django.shortcuts import redirect
 
 @login_required(login_url="login/")
 def home(request):
-    return render(request, "user_profile.html")
+    return render(request, "user_profile.html", {'stud_form':StudentInfoForm(), "search_form":SearchForm()})
 
 
 def register(request):

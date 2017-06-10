@@ -4,7 +4,7 @@ from datetime import date
 # Create your models here.
 
 #Model of the students
-class Student_info(models.Model):
+class StudentInfo(models.Model):
     #Personal information
     stud_name = models.CharField(max_length = 200)
     stud_school = models.CharField(max_length = 200)
@@ -15,7 +15,7 @@ class Student_info(models.Model):
     #Guardian information
     #Father
     father_name = models.CharField(max_length=200)
-    father_contact = models.BigIntegerField()
+    father_contact = models.CharField(max_length=10)
     father_email = models.EmailField(max_length = 200)
     father_education = models.CharField(max_length=200)
     father_occupation = models.CharField(max_length=200)
@@ -28,15 +28,15 @@ class Student_info(models.Model):
     #Academic info
     stud_grades = models.TextField()
 
-class language_disabilities(models.Model):
+class LanguageDisabilities(models.Model):
     dis_name = models.CharField(max_length=200)
-    student = models.ForeignKey(Student_info, on_delete=models.CASCADE)
+    student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)
 
-class mathematical_disabilities(models.Model):
+class MathematicalDisabilities(models.Model):
     dis_name = models.CharField(max_length=200)
-    student = models.ForeignKey(Student_info, on_delete=models.CASCADE)
+    student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)
 
-class parent_awareness(models.Model):
+class ParentAwareness(models.Model):
     awareness_type= models.CharField(max_length=200)
     awareness_score= models.IntegerField()
-    student = models.ForeignKey(Student_info, on_delete=models.CASCADE)
+    student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)

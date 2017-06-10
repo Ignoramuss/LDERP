@@ -20,7 +20,7 @@
 <body>
 
 <!-- Comment things out -->
-
+{% block content %}
 <!-- Second Container -->
 <span class="bckg"></span>
 <header>
@@ -86,59 +86,58 @@
   <!-- Please put things inside the article -->
   <article class="larg">
     <div class="container" id="student_adder">
-  <form id="contact" action="" method="post">
+  <form id="contact" action='{% url "home" %}' method="post">
+     {% csrf_token %}
     <legend><span class="number"></span> <h1>Personal Information</h1></legend>
+      {{stud_form.stud_name}}
     <fieldset>
-      <input placeholder="Full Name. ex: Shiv B" type="text" tabindex="1" required autofocus>
+      {{stud_form.stud_school}}
     </fieldset>
     <fieldset>
-      <input placeholder="Student School Name" type="text" tabindex="2" required>
+      {{stud_form.stud_standard}}
     </fieldset>
     <fieldset>
-      <input placeholder="Standard" type="text" tabindex="3" required>
+      {{stud_form.stud_school}}
     </fieldset>
     <fieldset>
-      <input placeholder="Divison" type="text" tabindex="4" required>
+      Date of Filling:  {{stud_form.date_of_fill}}
     </fieldset>
     <fieldset>
-      Date of filling:<br><input placeholder="Date of filling" type="date" tabindex="5" required>
-    </fieldset>
-    <fieldset>
-      Date of Birth:<br><input placeholder="Date of Birth" type="date" tabindex="6" required>
+      Date of Birth:  {{stud_form.date_of_birth}}
     </fieldset>
     <br>
       <legend><span class="number"></span> <h1>Guardian Information</h1></legend>
       <legend><span class="number"></span>Father's Details</legend>
       <fieldset>
-        <input placeholder="Father's Full Name" type="text" tabindex="7" required autofocus>
+        {{stud_form.father_name}}
       </fieldset>
       <fieldset>
-        <input placeholder="Father's Contact" type="tel" tabindex="8" required>
+        {{stud_form.father_contact}}
       </fieldset>
       <fieldset>
-        <input placeholder="Father's email" type="email" tabindex="9" required>
+        {{stud_form.father_email}}
       </fieldset>
       <fieldset>
-        <input placeholder="Father's education" type="text" tabindex="10" required>
+        {{stud_form.father_education}}
       </fieldset>
       <fieldset>
-        <input placeholder="Father's Occupation" type="text" tabindex="11" required>
+        {{stud_form.father_occupation}}
       </fieldset>
       <legend><span class="number"></span>Mother's Details</legend>
       <fieldset>
-        <input placeholder="Mother's Full Name" type="text" tabindex="12" required autofocus>
+        {{stud_form.mother_name}}
       </fieldset>
       <fieldset>
-        <input placeholder="Mother's Contact" type="tel" tabindex="13" required>
+        {{stud_form.mother_contact}}
       </fieldset>
       <fieldset>
-        <input placeholder="Mother's email" type="email" tabindex="14" required>
+        {{stud_form.mother_email}}
       </fieldset>
       <fieldset>
-        <input placeholder="Mother's education" type="text" tabindex="15" required>
+        {{stud_form.mother_education}}
       </fieldset>
       <fieldset>
-        <input placeholder="Mother's Occupation" type="text" tabindex="16" required>
+        {{stud_form.mother_occupation}}
       </fieldset>
       <br>
         <legend><span class="number"></span> <h1>Academic Information</h1></legend>
@@ -147,31 +146,31 @@
         </fieldset>
         <fieldset>
           <h3>Difficulties in Languages:</h3>
-          <input type="checkbox" name="disl" value="letter_identification">   a. identification of the letter<br>
-          <input type="checkbox" name="disl" value="let_sound_assoc">   b. letter-sound association<br>
-          <input type="checkbox" name="disl" value="spelling">    c. spellings<br>
-          <input type="checkbox" name="disl" value="reading">   d. reading<br>
-          <input type="checkbox" name="disl" value="comprehension">   e. comprehension<br>
-          <input type="checkbox" name="disl" value="composition">   f. composition<br>
-          <input type="checkbox" name="disl" value="grammar">   g. grammar<br>
+          {{stud_form.letter_identification}}   a. identification of the letter<br>
+          {{stud_form.let_sound_assoc}}   b. letter-sound association<br>
+          {{stud_form.spelling}}    c. spellings<br>
+          {{stud_form.reading}}   d. reading<br>
+          {{stud_form.comprehension}}   e. comprehension<br>
+          {{stud_form.composition}}   f. composition<br>
+          {{stud_form.grammar}}   g. grammar<br>
         </fieldset>
-
+        <fieldset>
           <h3>Difficulties in Mathematics:</h3>
-          <input type="checkbox" name="dism" value="number_identification">   a. identification of numbers<br>
-          <input type="checkbox" name="dism" value="forget_tables">   b. forget tables<br>
-          <input type="checkbox" name="dism" value="carry_borr">    c. forget carry forwad and borrowing<br>
-          <input type="checkbox" name="dism" value="frac_dec">   d. problem in fraction and decimal<br>
-          <input type="checkbox" name="dism" value="problem_int">   e. problem in integers<br>
-          <input type="checkbox" name="dism" value="algebra">   f. problem in algebraic equation<br>
-
+          {{stud_form.number_identification}}   a. identification of numbers<br>
+          {{stud_form.forget_tables}}   b. forget tables<br>
+          {{stud_form.carry_borr}}    c. forget carry forwad and borrowing<br>
+          {{stud_form.frac_dec}}   d. problem in fraction and decimal<br>
+          {{stud_form.problem_int}}   e. problem in integers<br>
+          {{stud_form.algebra}}   f. problem in algebraic equation<br>
+        </fieldset>
         <fieldset>
           <h3>Score of Parental Checklist:</h3>
-          a. awareness:<br><input  type="number" tabindex="17" required> <br>
-          b. acceptance:<br><input  type="number" tabindex="18" required> <br>
-          c. active participation:<br><input  type="number" tabindex="19" required> <br>
-          d. emotional support provided:<br><input  type="number" tabindex="20" required> <br>
-          e. aware about strengths:<br><input type="number" tabindex="21" required> <br>
-          f. parenting style:<br><input  type="number" tabindex="22" required> <br><br>
+          a. awareness:    {{stud_form.awareness}} <br><br>
+          b. acceptance:   {{stud_form.acceptance}} <br><br>
+          c. active participation:    {{stud_form.active_participation}} <br><br>
+          d. emotional support provided:   {{stud_form.emo_support_provided}} <br><br>
+          e. aware about strengths:   {{stud_form.strength_awareness}} <br><br>
+          f. parenting style:   {{stud_form.parenting_style}} <br><br>
 
         </fieldset>
     <fieldset>
@@ -187,45 +186,43 @@
 
   <div class="container" id="search_pane">
 	<div class="row" id="search">
-		<form id="search-form" action="" method="POST" enctype="multipart/form-data">
-			<div class="form-group col-xs-9">
-				<input class="form-control" type="text" placeholder="Search" />
+        <form id="search-form" action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="form-group col-xs-9">
+				{{search_form.search}}
 			</div>
 			<div class="form-group col-xs-3">
 				<button type="submit">Search</button>
 			</div>
+			<div class="form-group col-sm-3 col-xs-6">
+                <select id="id_disability" name="disability" data-filter="disability" class="filter-make filter form-control">
+                    {% for id, value in search_form.fields.disability.choices %}
+                        <option value="{{ id }}" {% if searchform.fields.disability.value == id %} selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                </select>
+			</div>
+			<div class="form-group col-sm-3 col-xs-6">
+				<select id="id_age_group" name="age_group" data-filter="age_group" class="filter-make filter form-control">
+                    {% for id, value in search_form.fields.age_group.choices %}
+                        <option value="{{ id }}" {% if searchform.fields.age_group.value == id %} selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                </select>
+			</div>
+			<div class="form-group col-sm-3 col-xs-6">
+				<select id="id_gender" name="gender" data-filter="gender" class="filter-make filter form-control">
+                    {% for id, value in search_form.fields.gender.choices %}
+                        <option value="{{ id }}" {% if searchform.fields.gender.value == id %} selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                </select>
+			</div>
+			<div class="form-group col-sm-3 col-xs-6">
+				<select id="id_education" name="education" data-filter="education" class="filter-make filter form-control">
+                    {% for id, value in search_form.fields.education.choices %}
+                        <option value="{{ id }}" {% if searchform.fields.education.value == id %} selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                </select>
+			</div>
 		</form>
-	</div>
-	<div class="row" id="filter">
-		<form>
-			<div class="form-group col-sm-3 col-xs-6">
-				<select data-filter="disability" class="filter-make filter form-control">
-					<option value="">Select Disability Type</option>
-					<option value="">Show All</option>
-				</select>
-			</div>
-			<div class="form-group col-sm-3 col-xs-6">
-				<select data-filter="age_group" class="filter-model filter form-control">
-					<option value="">Select Age Group</option>
-					<option value="">Show All</option>
-				</select>
-			</div>
-			<div class="form-group col-sm-3 col-xs-6">
-				<select data-filter="gender" class="filter-type filter form-control">
-					<option value="">Select Gender</option>
-					<option value="">Show All</option>
-				</select>
-			</div>
-			<div class="form-group col-sm-3 col-xs-6">
-				<select data-filter="education" class="filter-price filter form-control">
-					<option value="">Select Education</option>
-					<option value="">Show All</option>
-				</select>
-			</div>
-		</form>
-	</div>
-	<div class="row" id="products">
-
 	</div>
 </div>
   <!-- <script type='text/javascript' src="scripts/search_ui.js"></script> -->
@@ -238,3 +235,4 @@
 
 </body>
 </html>
+{% endblock %}
