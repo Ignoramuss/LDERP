@@ -66,11 +66,11 @@
       <li class="dropdown-header">User: {{user.username}}</li>
       <li role="separator" class="divider"></li>
       <li><a href="{% url 'password_reset' %}">Reset Password</a></li>
-      <li><a href="#">Another Action</a></li>
-      <li><a href="#">Getting Started/Help</a></li>
+      <!--<li><a href="#">Dummy Action</a></li>-->
+      <!--<li><a href="#">Dummy Action</a></li>-->
       <li role="separator" class="divider"></li>
       <li>
-        <a href="#">
+        <a href="{% url 'change_password' %}">
           <span class="fa fa-lock"></span> Change Your Password
         </a>
       </li>
