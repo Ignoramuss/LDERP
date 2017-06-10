@@ -1,0 +1,4 @@
+1) Add admin panel button for admin users in dashboard
+2) Add password change feature and view
+3) Add search student and register student through teacher's dashboard features
+4) Add confirmation email on signup feature for teachers
