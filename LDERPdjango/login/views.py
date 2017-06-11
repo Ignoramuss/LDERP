@@ -13,6 +13,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from django.views.generic import TemplateView
 
 
 # def login(request):
@@ -88,18 +89,51 @@ class LoginSignupView(auth_views.LoginView):
             context.update(self.extra_context)
         return context
 
-def change_password(request):
-    if request.method == 'POST':
-        form = PasswordChangeForm(request.user, request.POST)
-        if form.is_valid():
-            user = form.save()
-            update_session_auth_hash(request, user)  # Important!
-            messages.success(request, 'Your password was successfully updated!')
-            return redirect('login:change_password')
+# def change_password(request):
+#     if request.method == 'POST':
+#         form = PasswordChangeForm(request.user, request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             update_session_auth_hash(request, user)  # Important!
+#             messages.success(request, 'Your password was successfully updated!')
+#             return redirect('login:change_password')
+#         else:
+#             messages.error(request, 'Please correct the error below.')
+#     else:
+#         form = PasswordChangeForm(request.user)
+#     response = render(request, 'password_change.html', {
+#         'form': form
+#     })
+#     response.set_cookie('password_changed', 'true')
+#     return response
+
+class CustomPasswordChangeView(auth_views.PasswordChangeView):
+    def dispatch(self, request, *args, **kwargs):
+        response = super(CustomPasswordChangeView, self).dispatch(request, *args, **kwargs)
+        response.set_cookie('password_changed', 'true')
+        return response
+
+class CustomPasswordResetView(auth_views.PasswordChangeView):
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        response.set_cookie('password_reset', 'true')
+        return response
+
+class CustomPasswordResetDoneView(auth_views.PasswordResetDoneView):
+    def dispatch(self, request, *args, **kwargs):
+        if 'password_reset' in request.COOKIES:
+            response = super().dispatch(request, *args, **kwargs)
+            response.delete_cookie('password_reset')
+            return response
         else:
-            messages.error(request, 'Please correct the error below.')
-    else:
-        form = PasswordChangeForm(request.user)
-    return render(request, 'change_password.html', {
-        'form': form
-    })
+            return HttpResponseRedirect("/")
+
+
+class CustomPasswordChangeDoneView(auth_views.PasswordChangeDoneView):
+    def dispatch(self, request, *args, **kwargs):
+        if 'password_changed' in request.COOKIES:
+            response = super().dispatch(request, *args, **kwargs)
+            response.delete_cookie('password_changed')
+            return response
+        else:
+            return HttpResponseRedirect("/")
