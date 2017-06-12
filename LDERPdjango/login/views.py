@@ -15,6 +15,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.views.generic import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .multiforms import MultiFormsView
 
 
 # def login(request):
@@ -47,15 +48,34 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 #
 #     return render(request, 'home.html', {'login_form': login_form, 'signup_form': signup_form})
 
-class HomeView(LoginRequiredMixin, FormView):
+class HomeView(MultiFormsView, LoginRequiredMixin):
     login_url = "login/"
-    def get_context_data(self, **kwargs):
-        context = super(HomeView, self).get_context_data(**kwargs)
-        context.update({
-            'stud_form':StudentInfoForm(),
-            "search_form":SearchForm()
-        })
-        return context
+    template_name = 'user_profile.html'
+    form_classes = {'student': StudentInfoForm,
+                    'search': SearchForm}
+    success_url = '/'
+
+    # def get_student_initial(self):
+    #     return {'email': 'dave@dave.com'}
+    #
+    # def get_search_initial(self):
+    #     return {'email': 'dave@dave.com'}
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(HomeView, self).get_context_data(**kwargs)
+    #     context.update({"some_context_value": 'blah blah blah',
+    #                     "some_other_context_value": 'blah'})
+    #     return context
+
+    def student_form_valid(self, form):
+        return True
+        # return form.login(self.request, redirect_url=self.get_success_url())
+
+    def search_form_valid(self, form):
+        return True
+        # user = form.save(self.request)
+        # return form.signup(self.request, user, self.get_success_url())
+
 
 
 def register(request):
@@ -92,8 +112,6 @@ class LoginSignupView(auth_views.LoginView):
             'signup_form': RegistrationForm(),
             'message':''
         })
-        if self.extra_context is not None:
-            context.update(self.extra_context)
         return context
 
 # def change_password(request):
