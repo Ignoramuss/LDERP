@@ -13,7 +13,8 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-from django.views.generic import TemplateView
+from django.views.generic import FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # def login(request):
@@ -46,9 +47,15 @@ from django.views.generic import TemplateView
 #
 #     return render(request, 'home.html', {'login_form': login_form, 'signup_form': signup_form})
 
-@login_required(login_url="login/")
-def home(request):
-    return render(request, "user_profile.html", {'stud_form':StudentInfoForm(), "search_form":SearchForm()})
+class HomeView(LoginRequiredMixin, FormView):
+    login_url = "login/"
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context.update({
+            'stud_form':StudentInfoForm(),
+            "search_form":SearchForm()
+        })
+        return context
 
 
 def register(request):
@@ -113,7 +120,16 @@ class CustomPasswordChangeView(auth_views.PasswordChangeView):
         response.set_cookie('password_changed', 'true')
         return response
 
-class CustomPasswordResetView(auth_views.PasswordChangeView):
+class CustomPasswordChangeDoneView(auth_views.PasswordChangeDoneView):
+    def dispatch(self, request, *args, **kwargs):
+        if 'password_changed' in request.COOKIES:
+            response = super().dispatch(request, *args, **kwargs)
+            response.delete_cookie('password_changed')
+            return response
+        else:
+            return HttpResponseRedirect("/")
+
+class CustomPasswordResetView(auth_views.PasswordResetView):
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
         response.set_cookie('password_reset', 'true')
@@ -128,12 +144,18 @@ class CustomPasswordResetDoneView(auth_views.PasswordResetDoneView):
         else:
             return HttpResponseRedirect("/")
 
-
-class CustomPasswordChangeDoneView(auth_views.PasswordChangeDoneView):
+class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
     def dispatch(self, request, *args, **kwargs):
-        if 'password_changed' in request.COOKIES:
+        response = super().dispatch(request, *args, **kwargs)
+        response.set_cookie('password_reset_initiated', 'true')
+        return response
+
+
+class CustomPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
+    def dispatch(self, request, *args, **kwargs):
+        if 'password_reset_initiated' in request.COOKIES:
             response = super().dispatch(request, *args, **kwargs)
-            response.delete_cookie('password_changed')
+            response.delete_cookie('password_reset_initiated')
             return response
         else:
             return HttpResponseRedirect("/")

@@ -27,7 +27,7 @@ urlpatterns = [
     # url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     # # url(r'^login/$', auth_views.login, {'template_name': 'home.html'}, name='login'),
     # url(r'^$', views.login, name='login'),
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.HomeView.as_view(template_name="user_profile.html"), name='home'),
     # url(r'^home/$', views.home, name='home'),
     url(r'^login/$', LoginSignupView.as_view(template_name='home.html', authentication_form=LoginForm, redirect_authenticated_user=True), name="login"),
     url(r'^logout/$', auth_views.logout, {'next_page': '/login'}, name='logout'),
@@ -39,9 +39,9 @@ urlpatterns = [
     # url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^dash/', TemplateView.as_view(template_name='user_profile.html'), name='dash'),
 
-    url(r'^password_reset/$', auth_views.PasswordResetView.as_view(template_name='password_reset_form.html', email_template_name='password_reset_email.html', subject_template_name="password_reset_subject.txt"), name='password_reset'),
-    url(r'^password_reset/done/$', auth_views.PasswordResetDoneView.as_view(template_name="password_reset_done.html"), name='password_reset_done'),
-    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name='password_reset_confirm'),
-    url(r'^reset/done/$', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name='password_reset_complete'),
+    url(r'^password_reset/$', views.CustomPasswordResetView.as_view(template_name='password_reset_form.html', email_template_name='password_reset_email.html', subject_template_name="password_reset_subject.txt"), name='password_reset'),
+    url(r'^password_reset/done/$', views.CustomPasswordResetDoneView.as_view(template_name="password_reset_done.html"), name='password_reset_done'),
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.CustomPasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name='password_reset_confirm'),
+    url(r'^reset/done/$', views.CustomPasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name='password_reset_complete'),
     # url(r'^admin/', admin.site.urls),
 ]
