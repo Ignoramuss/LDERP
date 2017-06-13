@@ -19,7 +19,7 @@ body {
 	font-size: 12px;
 	line-height:30px;
 	color:#777;
-	background:#0CF;
+	background:#999;
 }
 
 .container {
@@ -38,10 +38,16 @@ body {
 }
 
 #contact h3 {
-	color: #F96;
+	color: #333;
 	display: block;
-	font-size: 30px;
-	font-weight: 400;
+	margin-bottom: 20px;
+	/*font-size: 30px;*/
+	/*font-weight: 400;*/
+	font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 #contact h4 {
@@ -80,14 +86,17 @@ fieldset {
 }
 
 #contact button[type="submit"] {
+letter-spacing: 2px;
+font-size: 18px;
 	cursor:pointer;
 	width:100%;
 	border:none;
-	background:#0CF;
+	background:#28d;
 	color:#FFF;
 	margin:0 0 5px;
 	padding:10px;
-	font-size:15px;
+	font-size:18px;
+	    border-radius: 6px;
 }
 
 #contact button[type="submit"]:hover {
@@ -277,11 +286,15 @@ main {
 .btn-group-lg>.btn, .btn-lg {
     padding: 10px 16px;
     margin-top: 2%;
-		margin-right: 5%;
+		/*margin-right: 5%;*/
     width: 98%;
     font-size: 18px;
+		font-size: 18px;
+letter-spacing: 2px;
     line-height: 1.3333333;
     border-radius: 6px;
+		background-color: #28d;
+		color: #fff;
 }
 
 .dropdown-menu {

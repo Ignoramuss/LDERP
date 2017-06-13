@@ -859,6 +859,10 @@
 .entypo-logo-db:before {
   content: "\f603";
 }
+
+form{
+  background-color: #fff;
+}
 body {
   display: -webkit-box;
   display: -moz-box;
@@ -870,6 +874,7 @@ body {
   /*background-color: #f0f0f0;*/
   font-family: Muli, sans-serif;
   color: #444;
+  background-color: #999;
 }
 ul {
   list-style: none;
@@ -899,7 +904,8 @@ h1 {
   margin: 0;
   font-size: 20px;
   letter-spacing: 2px;
-  background-color: #34363A;
+  /*background-color: #34363A;*/
+  background-color: #28d;
   border-bottom: 1px solid rgba(101, 116, 134, 0.57);
 }
 h2 {
@@ -924,7 +930,8 @@ h2:before {
   position: absolute;
   left: -19px;
   top: 12px;
-  background-color: #34363A;
+  /*background-color: #34363A;*/
+  background-color: #28d;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -1056,4 +1063,29 @@ a:hover {
   margin-left: 10px;
   padding: 0 15px;
   border-left: 1px solid #ccc;
+}
+/**/
+/*.btnsearch{
+  color:#71767a;
+  height: 25px;
+  width: 25px;
+  background-image:url('http://findicons.com/files/icons/1389/g5_system/16/toolbar_find.png');
+  background-repeat:no-repeat;
+}*/
+
+.btnsearch{
+  font-family: inherit;
+  font-size: 18px;
+  line-height: inherit;
+  width: 100%;
+  background-color: #28d;
+  color: #fff;
+  border-color: #28d;
+
+  letter-spacing: 2px;
+      cursor: pointer;
+      border: none;
+      color: #FFF;
+      padding: 2px;
+      border-radius: 6px;
 }

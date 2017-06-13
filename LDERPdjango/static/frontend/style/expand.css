@@ -42,11 +42,12 @@
   margin-right: auto;
   margin-left: auto;
   border: 12px solid transparent;
-  border-bottom-color: #e74c3c;
+  /*border-bottom-color: #e74c3c;*/
+  border-bottom-color: #28d;
 }
 
 .login-header {
-  background: #e74c3c;
+  background: #28d;
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
