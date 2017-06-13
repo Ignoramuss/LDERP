@@ -6,7 +6,8 @@ from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from .forms import LoginForm, RegistrationForm, StudentInfoForm, SearchForm
+from .forms import LoginForm, RegistrationForm, SearchForm, ParentalMetricScoreModelForm, StudentInfoModelForm
+from .models import ParentalMetric, LanguageDisability, MathematicalDisability
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.shortcuts import redirect
@@ -16,7 +17,8 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.views.generic import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .multiforms import MultiFormsView
-
+from django.contrib.admin.views.decorators import staff_member_required
+import logging
 
 # def login(request):
 #     # if this is a POST request we need to process the form data
@@ -51,7 +53,7 @@ from .multiforms import MultiFormsView
 class HomeView(MultiFormsView, LoginRequiredMixin):
     login_url = "login/"
     template_name = 'user_profile.html'
-    form_classes = {'student': StudentInfoForm,
+    form_classes = {'student': StudentInfoModelForm,
                     'search': SearchForm}
     success_url = '/'
 
@@ -68,6 +70,23 @@ class HomeView(MultiFormsView, LoginRequiredMixin):
     #     return context
 
     def student_form_valid(self, form):
+        student = form.save(commit=False)
+        if self.request == "POST":
+            if form.is_valid():
+                pmforms = []
+                for metric in ParentalMetric.objects.all():
+                    pmform = ParentalMetricScoreModelForm(self.request.post, prefix=metric.metric_name)
+                    if pmform.is_valid():
+                        pmform.student = student
+                        pmform.metric_type = metric
+                        pmforms.append(pmform)
+                    else:
+                        return False
+                for pmform in pmforms:
+                    pmform.save()
+                student.save()
+            else:
+                return False
         return True
         # return form.login(self.request, redirect_url=self.get_success_url())
 
@@ -75,6 +94,20 @@ class HomeView(MultiFormsView, LoginRequiredMixin):
         return True
         # user = form.save(self.request)
         # return form.signup(self.request, user, self.get_success_url())
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        # Parental metric
+        metric_dict = {}
+        for metric in ParentalMetric.objects.all():
+            pmform = ParentalMetricScoreModelForm(prefix=metric.metric_name)
+            metric_dict.update({
+                metric.metric_name: pmform
+            })
+        context.update({
+            'metrics': metric_dict
+        })
+        return context
 
 
 

@@ -2,6 +2,25 @@ from django.db import models
 from datetime import date
 
 # Create your models here.
+class LanguageDisability(models.Model):
+    disability_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.disability_name
+    # student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)
+
+class MathematicalDisability(models.Model):
+    disability_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.disability_name
+    # student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)
+
+class ParentalMetric(models.Model):
+    metric_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.metric_name
 
 #Model of the students
 class StudentInfo(models.Model):
@@ -27,16 +46,11 @@ class StudentInfo(models.Model):
     mother_occupation = models.CharField(max_length=200)
     #Academic info
     stud_grades = models.TextField()
+    language_disabilities = models.ManyToManyField(LanguageDisability)
+    mathematical_disabilities = models.ManyToManyField(MathematicalDisability)
+    # parent_awareness_scores = models.OneToOneField(ParentAwarenessScore)
 
-class LanguageDisabilities(models.Model):
-    dis_name = models.CharField(max_length=200)
-    student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)
-
-class MathematicalDisabilities(models.Model):
-    dis_name = models.CharField(max_length=200)
-    student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)
-
-class ParentAwareness(models.Model):
-    awareness_type= models.CharField(max_length=200)
-    awareness_score= models.IntegerField()
-    student = models.ForeignKey(StudentInfo, on_delete=models.CASCADE)
+class ParentalMetricScore(models.Model):
+    metric_type = models.ForeignKey(ParentalMetric)
+    metric_score= models.IntegerField()
+    student = models.ForeignKey(StudentInfo, null=True)

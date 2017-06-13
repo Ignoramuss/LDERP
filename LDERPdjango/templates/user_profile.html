@@ -75,6 +75,11 @@
         </a>
       </li>
       <li>
+        <a href="/admin/">
+          <span class="fa fa-lock"></span>Admin Panel
+        </a>
+      </li>
+      <li>
         <a href="/logout/">
           <span class="fa fa-times"></span> Sign Out
         </a>
@@ -97,7 +102,7 @@
       {{forms.student.stud_standard}}
     </fieldset>
     <fieldset>
-      {{forms.student.stud_school}}
+      {{forms.student.stud_div}}
     </fieldset>
     <fieldset>
       Date of Filling:  {{forms.student.date_of_fill}}
@@ -146,31 +151,36 @@
         </fieldset>
         <fieldset>
           <h3>Difficulties in Languages:</h3>
-          {{forms.student.letter_identification}}   a. identification of the letter<br>
-          {{forms.student.let_sound_assoc}}   b. letter-sound association<br>
-          {{forms.student.spelling}}    c. spellings<br>
-          {{forms.student.reading}}   d. reading<br>
-          {{forms.student.comprehension}}   e. comprehension<br>
-          {{forms.student.composition}}   f. composition<br>
-          {{forms.student.grammar}}   g. grammar<br>
+          <!--{{forms.student.letter_identification}}   a. identification of the letter<br>-->
+          <!--{{forms.student.let_sound_assoc}}   b. letter-sound association<br>-->
+          <!--{{forms.student.spelling}}    c. spellings<br>-->
+          <!--{{forms.student.reading}}   d. reading<br>-->
+          <!--{{forms.student.comprehension}}   e. comprehension<br>-->
+          <!--{{forms.student.composition}}   f. composition<br>-->
+          <!--{{forms.student.grammar}}   g. grammar<br>-->
+          {{forms.student.language_disabilities}}
         </fieldset>
         <fieldset>
           <h3>Difficulties in Mathematics:</h3>
-          {{forms.student.number_identification}}   a. identification of numbers<br>
-          {{forms.student.forget_tables}}   b. forget tables<br>
-          {{forms.student.carry_borr}}    c. forget carry forwad and borrowing<br>
-          {{forms.student.frac_dec}}   d. problem in fraction and decimal<br>
-          {{forms.student.problem_int}}   e. problem in integers<br>
-          {{forms.student.algebra}}   f. problem in algebraic equation<br>
+          <!--{{forms.student.number_identification}}   a. identification of numbers<br>-->
+          <!--{{forms.student.forget_tables}}   b. forget tables<br>-->
+          <!--{{forms.student.carry_borr}}    c. forget carry forwad and borrowing<br>-->
+          <!--{{forms.student.frac_dec}}   d. problem in fraction and decimal<br>-->
+          <!--{{forms.student.problem_int}}   e. problem in integers<br>-->
+          <!--{{forms.student.algebra}}   f. problem in algebraic equation<br>-->
+           {{forms.student.mathematical_disabilities}}
         </fieldset>
         <fieldset>
           <h3>Score of Parental Checklist:</h3>
-          a. awareness:<br>{{forms.student.awareness}} <br>
-          b. acceptance:<br>{{forms.student.acceptance}} <br>
-          c. active participation:<br>{{forms.student.active_participation}} <br>
-          d. emotional support provided:<br>{{forms.student.emo_support_provided}} <br>
-          e. aware about strengths:<br>{{forms.student.strength_awareness}} <br>
-          f. parenting style:<br>{{forms.student.parenting_style}} <br><br>
+           {% for metric_name, metric_form in metrics.items %}
+            {{forloop.counter}} {{metric_name}}:<br>{{metric_form}}<br>
+            {% endfor %}
+          <!--a. awareness:<br>{{forms.student.awareness}} <br>-->
+          <!--b. acceptance:<br>{{forms.student.acceptance}} <br>-->
+          <!--c. active participation:<br>{{forms.student.active_participation}} <br>-->
+          <!--d. emotional support provided:<br>{{forms.student.emo_support_provided}} <br>-->
+          <!--e. aware about strengths:<br>{{forms.student.strength_awareness}} <br>-->
+          <!--f. parenting style:<br>{{forms.student.parenting_style}} <br><br>-->
 
         </fieldset>
     <fieldset>
