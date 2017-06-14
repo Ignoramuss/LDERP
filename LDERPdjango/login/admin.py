@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import StudentInfo, LanguageDisability, MathematicalDisability, ParentalMetric
+from .models import StudentInfo, LanguageDisability, MathematicalDisability, ParentalMetric, ParentalMetricScore
 
 
 # # 9 Set up the Choice options on the Question page
@@ -69,7 +69,20 @@ class ParentalMetricAdmin(admin.ModelAdmin):
     fields = ['metric_name', ]
     list_display = ['metric_name', ]
 
+class StudentInfoAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in StudentInfo._meta.fields ]
+    # fields.append('language_disabilities')
+    # fields.append('mathematical_disabilities')
+    list_display.append('get_language_disabilities')
+    list_display.append('get_mathematical_disabilities')
+    exclude = []
+
+class ParentalMetricScoreAdmin(admin.ModelAdmin):
+    fields = [field.name for field in ParentalMetricScore._meta.fields ]
+    list_display = [field.name for field in ParentalMetricScore._meta.fields ]
 
 admin.site.register(MathematicalDisability, MathematicalDisabilityAdmin)
 admin.site.register(LanguageDisability, LanguageDisabilityAdmin)
 admin.site.register(ParentalMetric, ParentalMetricAdmin)
+admin.site.register(StudentInfo, StudentInfoAdmin)
+admin.site.register(ParentalMetricScore, ParentalMetricScoreAdmin)

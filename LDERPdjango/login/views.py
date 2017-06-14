@@ -18,7 +18,8 @@ from django.views.generic import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .multiforms import MultiFormsView
 from django.contrib.admin.views.decorators import staff_member_required
-import logging
+from .log import Logger
+logger = Logger().function_logger('views')
 
 # def login(request):
 #     # if this is a POST request we need to process the form data
@@ -70,32 +71,35 @@ class HomeView(MultiFormsView, LoginRequiredMixin):
     #     return context
 
     def student_form_valid(self, form):
-        student = form.save(commit=False)
-        if self.request == "POST":
-            if form.is_valid():
-                pmforms = []
-                for metric in ParentalMetric.objects.all():
-                    pmform = ParentalMetricScoreModelForm(self.request.post, prefix=metric.metric_name)
-                    if pmform.is_valid():
-                        pmform.student = student
-                        pmform.metric_type = metric
-                        pmforms.append(pmform)
-                    else:
-                        return False
-                for pmform in pmforms:
-                    pmform.save()
-                student.save()
+        logger.info("in student valid")
+        pmmodels = []
+        for metric in ParentalMetric.objects.all():
+            logger.info("in for loop")
+            pmform = ParentalMetricScoreModelForm(self.request.POST, prefix=metric.metric_name)
+            if pmform.is_valid():
+                logger.info("inside if statement")
+                pmmodel = pmform.save(commit=False)
+                pmmodel.metric_type = metric
+                pmmodels.append(pmmodel)
             else:
+                logger.info("in else statement")
                 return False
-        return True
+        student = form.save()
+        for pmmodel in pmmodels:
+            logger.info("in second for loop")
+            pmmodel.student = student
+            pmmodel.save()
+        logger.info("post save")
+        return HttpResponseRedirect(self.success_url)
         # return form.login(self.request, redirect_url=self.get_success_url())
 
     def search_form_valid(self, form):
-        return True
+        return HttpResponseRedirect(self.success_url)
         # user = form.save(self.request)
         # return form.signup(self.request, user, self.get_success_url())
 
     def get_context_data(self, **kwargs):
+        logger.info("in context data")
         context = super(HomeView, self).get_context_data(**kwargs)
         # Parental metric
         metric_dict = {}
@@ -108,6 +112,16 @@ class HomeView(MultiFormsView, LoginRequiredMixin):
             'metrics': metric_dict
         })
         return context
+
+    def forms_invalid(self, forms):
+        logger.info("in forms invalid")
+        ret = super(HomeView, self).forms_invalid(forms)
+        return ret
+
+    def forms_valid(self, forms, form_name):
+        logger.info("in forms valid")
+        ret = super(HomeView, self).forms_valid(forms, form_name)
+        return ret
 
 
 

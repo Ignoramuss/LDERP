@@ -94,60 +94,77 @@
   <form id="contact" action='{% url "home" %}' method="post">
      {% csrf_token %}
     <legend><span class="number"></span> <h1>Personal Information</h1></legend>
+      {{forms.student.stud_name.errors}}
       {{forms.student.stud_name}}
     <fieldset>
-      {{forms.student.stud_school}}
+      {{forms.student.stud_school.errors}}
+       {{forms.student.stud_school}}
     </fieldset>
     <fieldset>
-      {{forms.student.stud_standard}}
+      {{forms.student.stud_standard.errors}}
+        {{forms.student.stud_standard}}
     </fieldset>
     <fieldset>
-      {{forms.student.stud_div}}
+      {{forms.student.stud_div.errors}}
+        {{forms.student.stud_div}}
     </fieldset>
     <fieldset>
+      {{forms.student.date_of_fill.errors}}
       Date of Filling:  {{forms.student.date_of_fill}}
     </fieldset>
     <fieldset>
+      {{forms.student.date_of_birth.errors}}
       Date of Birth:  {{forms.student.date_of_birth}}
     </fieldset>
     <br>
       <legend><span class="number"></span> <h1>Guardian Information</h1></legend>
       <legend><span class="number"></span>Father's Details</legend>
       <fieldset>
+        {{forms.student.father_name.errors}}
         {{forms.student.father_name}}
       </fieldset>
       <fieldset>
+        {{forms.student.father_contact.errors}}
         {{forms.student.father_contact}}
       </fieldset>
       <fieldset>
+        {{forms.student.father_email.errors}}
         {{forms.student.father_email}}
       </fieldset>
       <fieldset>
+        {{forms.student.father_education.errors}}
         {{forms.student.father_education}}
       </fieldset>
       <fieldset>
+        {{forms.student.father_occupation.errors}}
         {{forms.student.father_occupation}}
       </fieldset>
       <legend><span class="number"></span>Mother's Details</legend>
       <fieldset>
+         {{forms.student.mother_name.errors}}
         {{forms.student.mother_name}}
       </fieldset>
       <fieldset>
+        {{forms.student.mother_contact.errors}}
         {{forms.student.mother_contact}}
       </fieldset>
       <fieldset>
+        {{forms.student.mother_email.errors}}
         {{forms.student.mother_email}}
       </fieldset>
       <fieldset>
+        {{forms.student.mother_education.errors}}
         {{forms.student.mother_education}}
       </fieldset>
       <fieldset>
+        {{forms.student.mother_occupation.errors}}
         {{forms.student.mother_occupation}}
       </fieldset>
       <br>
         <legend><span class="number"></span> <h1>Academic Information</h1></legend>
         <fieldset>
-          <textarea name="GradeField" placeholder="Student Grades"></textarea>
+          {{forms.student.stud_grades.errors}}
+          {{forms.student.stud_grades}}
         </fieldset>
         <fieldset>
           <h3>Difficulties in Languages:</h3>
@@ -158,6 +175,7 @@
           <!--{{forms.student.comprehension}}   e. comprehension<br>-->
           <!--{{forms.student.composition}}   f. composition<br>-->
           <!--{{forms.student.grammar}}   g. grammar<br>-->
+          {{forms.student.language_disabilities.errors}}
           {{forms.student.language_disabilities}}
         </fieldset>
         <fieldset>
@@ -168,6 +186,7 @@
           <!--{{forms.student.frac_dec}}   d. problem in fraction and decimal<br>-->
           <!--{{forms.student.problem_int}}   e. problem in integers<br>-->
           <!--{{forms.student.algebra}}   f. problem in algebraic equation<br>-->
+           {{forms.student.mathematical_disabilities.errors}}
            {{forms.student.mathematical_disabilities}}
         </fieldset>
         <fieldset>

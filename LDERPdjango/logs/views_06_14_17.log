@@ -1,0 +1,132 @@
+2017-06-14 05:26:15,082 - line:103 INFO     - in context data
+2017-06-14 05:27:46,280 - line:118 INFO     - in forms invalid
+2017-06-14 05:27:46,280 - line:103 INFO     - in context data
+2017-06-14 05:34:41,178 - line:103 INFO     - in context data
+2017-06-14 05:35:34,514 - line:123 INFO     - in forms valid
+2017-06-14 05:35:34,515 - line:74 INFO     - in student valid
+2017-06-14 06:47:36,021 - line:102 INFO     - in context data
+2017-06-14 06:48:23,473 - line:122 INFO     - in forms valid
+2017-06-14 06:48:23,473 - line:74 INFO     - in student valid
+2017-06-14 06:48:23,478 - line:77 INFO     - in for loop
+2017-06-14 06:48:57,535 - line:122 INFO     - in forms valid
+2017-06-14 06:48:57,536 - line:74 INFO     - in student valid
+2017-06-14 06:48:57,538 - line:77 INFO     - in for loop
+2017-06-14 06:50:38,848 - line:122 INFO     - in forms valid
+2017-06-14 06:50:38,848 - line:74 INFO     - in student valid
+2017-06-14 06:50:38,848 - line:77 INFO     - in for loop
+2017-06-14 06:51:20,438 - line:122 INFO     - in forms valid
+2017-06-14 06:51:20,438 - line:74 INFO     - in student valid
+2017-06-14 06:51:20,440 - line:77 INFO     - in for loop
+2017-06-14 06:51:20,440 - line:84 INFO     - in else statement
+2017-06-14 06:52:35,454 - line:102 INFO     - in context data
+2017-06-14 06:52:42,820 - line:102 INFO     - in context data
+2017-06-14 06:53:18,766 - line:122 INFO     - in forms valid
+2017-06-14 06:53:18,767 - line:74 INFO     - in student valid
+2017-06-14 06:53:18,768 - line:77 INFO     - in for loop
+2017-06-14 06:53:18,768 - line:80 INFO     - inside if statement
+2017-06-14 06:53:18,768 - line:77 INFO     - in for loop
+2017-06-14 06:53:18,769 - line:80 INFO     - inside if statement
+2017-06-14 06:53:18,769 - line:77 INFO     - in for loop
+2017-06-14 06:53:18,771 - line:80 INFO     - inside if statement
+2017-06-14 06:53:18,772 - line:77 INFO     - in for loop
+2017-06-14 06:53:18,773 - line:80 INFO     - inside if statement
+2017-06-14 06:53:18,773 - line:77 INFO     - in for loop
+2017-06-14 06:53:18,774 - line:80 INFO     - inside if statement
+2017-06-14 06:53:18,774 - line:77 INFO     - in for loop
+2017-06-14 06:53:18,774 - line:80 INFO     - inside if statement
+2017-06-14 06:53:18,775 - line:88 INFO     - in second for loop
+2017-06-14 07:00:04,862 - line:123 INFO     - in forms valid
+2017-06-14 07:00:04,863 - line:74 INFO     - in student valid
+2017-06-14 07:00:04,863 - line:77 INFO     - in for loop
+2017-06-14 07:00:04,863 - line:80 INFO     - inside if statement
+2017-06-14 07:00:04,863 - line:77 INFO     - in for loop
+2017-06-14 07:00:04,864 - line:80 INFO     - inside if statement
+2017-06-14 07:00:04,864 - line:77 INFO     - in for loop
+2017-06-14 07:00:04,864 - line:80 INFO     - inside if statement
+2017-06-14 07:00:04,864 - line:77 INFO     - in for loop
+2017-06-14 07:00:04,864 - line:80 INFO     - inside if statement
+2017-06-14 07:00:04,864 - line:77 INFO     - in for loop
+2017-06-14 07:00:04,865 - line:80 INFO     - inside if statement
+2017-06-14 07:00:04,865 - line:77 INFO     - in for loop
+2017-06-14 07:00:04,865 - line:80 INFO     - inside if statement
+2017-06-14 07:00:04,865 - line:88 INFO     - in second for loop
+2017-06-14 07:00:40,736 - line:122 INFO     - in forms valid
+2017-06-14 07:00:40,736 - line:74 INFO     - in student valid
+2017-06-14 07:00:40,737 - line:77 INFO     - in for loop
+2017-06-14 07:00:40,737 - line:80 INFO     - inside if statement
+2017-06-14 07:00:40,737 - line:77 INFO     - in for loop
+2017-06-14 07:00:40,737 - line:80 INFO     - inside if statement
+2017-06-14 07:00:40,737 - line:77 INFO     - in for loop
+2017-06-14 07:00:40,738 - line:80 INFO     - inside if statement
+2017-06-14 07:00:40,738 - line:77 INFO     - in for loop
+2017-06-14 07:00:40,738 - line:80 INFO     - inside if statement
+2017-06-14 07:00:40,738 - line:77 INFO     - in for loop
+2017-06-14 07:00:40,739 - line:80 INFO     - inside if statement
+2017-06-14 07:00:40,739 - line:77 INFO     - in for loop
+2017-06-14 07:00:40,739 - line:80 INFO     - inside if statement
+2017-06-14 07:00:41,138 - line:88 INFO     - in second for loop
+2017-06-14 07:02:14,024 - line:122 INFO     - in forms valid
+2017-06-14 07:02:14,024 - line:74 INFO     - in student valid
+2017-06-14 07:02:14,025 - line:77 INFO     - in for loop
+2017-06-14 07:02:14,025 - line:80 INFO     - inside if statement
+2017-06-14 07:02:14,025 - line:77 INFO     - in for loop
+2017-06-14 07:02:14,026 - line:80 INFO     - inside if statement
+2017-06-14 07:02:14,026 - line:77 INFO     - in for loop
+2017-06-14 07:02:14,026 - line:80 INFO     - inside if statement
+2017-06-14 07:02:14,026 - line:77 INFO     - in for loop
+2017-06-14 07:02:14,026 - line:80 INFO     - inside if statement
+2017-06-14 07:02:14,026 - line:77 INFO     - in for loop
+2017-06-14 07:02:14,027 - line:80 INFO     - inside if statement
+2017-06-14 07:02:14,027 - line:77 INFO     - in for loop
+2017-06-14 07:02:14,027 - line:80 INFO     - inside if statement
+2017-06-14 07:02:14,324 - line:89 INFO     - in second for loop
+2017-06-14 07:02:14,895 - line:89 INFO     - in second for loop
+2017-06-14 07:02:14,990 - line:89 INFO     - in second for loop
+2017-06-14 07:02:15,090 - line:89 INFO     - in second for loop
+2017-06-14 07:02:15,178 - line:89 INFO     - in second for loop
+2017-06-14 07:02:15,267 - line:89 INFO     - in second for loop
+2017-06-14 07:02:15,356 - line:92 INFO     - post save
+2017-06-14 07:05:48,428 - line:122 INFO     - in forms valid
+2017-06-14 07:05:48,428 - line:74 INFO     - in student valid
+2017-06-14 07:05:48,430 - line:77 INFO     - in for loop
+2017-06-14 07:05:48,430 - line:80 INFO     - inside if statement
+2017-06-14 07:05:48,431 - line:77 INFO     - in for loop
+2017-06-14 07:05:48,431 - line:80 INFO     - inside if statement
+2017-06-14 07:05:48,432 - line:77 INFO     - in for loop
+2017-06-14 07:05:48,433 - line:80 INFO     - inside if statement
+2017-06-14 07:05:48,433 - line:77 INFO     - in for loop
+2017-06-14 07:05:48,433 - line:80 INFO     - inside if statement
+2017-06-14 07:05:48,434 - line:77 INFO     - in for loop
+2017-06-14 07:05:48,434 - line:80 INFO     - inside if statement
+2017-06-14 07:05:48,434 - line:77 INFO     - in for loop
+2017-06-14 07:05:48,436 - line:80 INFO     - inside if statement
+2017-06-14 07:05:48,734 - line:89 INFO     - in second for loop
+2017-06-14 07:05:48,822 - line:89 INFO     - in second for loop
+2017-06-14 07:05:48,900 - line:89 INFO     - in second for loop
+2017-06-14 07:05:48,977 - line:89 INFO     - in second for loop
+2017-06-14 07:05:49,066 - line:89 INFO     - in second for loop
+2017-06-14 07:05:49,155 - line:89 INFO     - in second for loop
+2017-06-14 07:05:49,244 - line:92 INFO     - post save
+2017-06-14 07:05:49,254 - line:102 INFO     - in context data
+2017-06-14 07:06:57,066 - line:122 INFO     - in forms valid
+2017-06-14 07:06:57,066 - line:74 INFO     - in student valid
+2017-06-14 07:06:57,067 - line:77 INFO     - in for loop
+2017-06-14 07:06:57,069 - line:80 INFO     - inside if statement
+2017-06-14 07:06:57,070 - line:77 INFO     - in for loop
+2017-06-14 07:06:57,070 - line:80 INFO     - inside if statement
+2017-06-14 07:06:57,070 - line:77 INFO     - in for loop
+2017-06-14 07:06:57,071 - line:80 INFO     - inside if statement
+2017-06-14 07:06:57,071 - line:77 INFO     - in for loop
+2017-06-14 07:06:57,072 - line:80 INFO     - inside if statement
+2017-06-14 07:06:57,072 - line:77 INFO     - in for loop
+2017-06-14 07:06:57,074 - line:80 INFO     - inside if statement
+2017-06-14 07:06:57,075 - line:77 INFO     - in for loop
+2017-06-14 07:06:57,078 - line:80 INFO     - inside if statement
+2017-06-14 07:06:57,426 - line:89 INFO     - in second for loop
+2017-06-14 07:06:57,515 - line:89 INFO     - in second for loop
+2017-06-14 07:06:57,603 - line:89 INFO     - in second for loop
+2017-06-14 07:06:57,692 - line:89 INFO     - in second for loop
+2017-06-14 07:06:57,781 - line:89 INFO     - in second for loop
+2017-06-14 07:06:57,892 - line:89 INFO     - in second for loop
+2017-06-14 07:06:57,980 - line:92 INFO     - post save
+2017-06-14 07:06:57,992 - line:102 INFO     - in context data
